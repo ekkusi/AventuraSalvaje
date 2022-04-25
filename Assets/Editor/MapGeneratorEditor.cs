@@ -15,6 +15,7 @@ public class MapGeneratorEditor : Editor
     // Button for generating map
     if (GUILayout.Button("Generate map")) {
       Debug.Log("Generating map");
+      mapGenerator.LoadResources();
       mapGenerator.GenerateMap();
     }
 
