@@ -34,8 +34,10 @@ public class MapGenerator : MonoBehaviour
     private int chunkY = 0;
 
     void Update() {
-        int playerChunkX = (int) Math.Round((player.transform.position.x * 2f) / chunkSize);
-        int playerChunkY = (int) Math.Round((player.transform.position.y * 2f) / chunkSize);
+        float playerIsoX = (float) player.transform.position.y * 2 + player.transform.position.x;
+        float playerIsoY = (float) player.transform.position.y * 2 - player.transform.position.x;
+        int playerChunkX = (int) Math.Round(playerIsoX / chunkSize);
+        int playerChunkY = (int) Math.Round(playerIsoY / chunkSize);
         if (playerChunkX != chunkX ||playerChunkY != chunkY) {
             chunkX = playerChunkX;
             chunkY = playerChunkY;
