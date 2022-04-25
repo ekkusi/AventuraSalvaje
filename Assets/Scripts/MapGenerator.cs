@@ -18,7 +18,7 @@ public class MapGenerator : MonoBehaviour
 
     [SerializeField] private uint seed;
     [SerializeField] private int chunkSize = 32;
-    [SerializeField] private int maxChunks = 1;
+    [SerializeField] private int maxChunks = 10000000;
     [SerializeField] private GameObject map;
     [SerializeField] private Tilemap tileMap;
     [SerializeField] private GameObject player;
@@ -152,8 +152,8 @@ public class Map {
     float temperatureOffsetX;
     float temperatureOffsetY;
 
-    private float humidityScale = 5f;
-    private float temperatureScale = 2f;
+    private float humidityScale = 5000000f;
+    private float temperatureScale = 2000000f;
 
     // TODO: Add seed as parameter to construct the map.     
     public Map() {
@@ -168,15 +168,15 @@ public class Map {
         float humidity = Mathf.PerlinNoise(x * humidityScale + humidityOffsetX, y * humidityScale + humidityOffsetY);
         float temperature = Mathf.PerlinNoise(x * temperatureScale + temperatureOffsetX, y * temperatureScale + temperatureOffsetY);
         Biome biome = Biome.Forest;
-        if (temperature > 0.7) {
-            if (humidity > 0.7) {
+        if (temperature > 0.6) {
+            if (humidity > 0.6) {
                 biome = Biome.Desert;
             }
             else {
                 biome = Biome.RedLand;
             }
         }
-        else if (temperature < 0.3) {
+        else if (temperature < 0.35) {
             if (humidity > 0.5) {
                 biome = Biome.DeadForest;
             } else {
