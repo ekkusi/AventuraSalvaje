@@ -92,8 +92,8 @@ public class MapGenerator : MonoBehaviour
     }
 
     private void RemoveChunkTiles(Vector3Int chunk) {
-        for (int x = -chunkSize / 2 + chunk.x * chunkSize; x < chunkSize / 2 + chunk.y * chunkSize; x++) {
-            for (int y = -chunkSize / 2 + chunk.y * chunkSize; y < chunkSize / 2 + chunk.x * chunkSize; y++) {
+        for (int x = -chunkSize / 2 + chunk.x * chunkSize; x < chunkSize / 2 + chunk.x * chunkSize; x++) {
+            for (int y = -chunkSize / 2 + chunk.y * chunkSize; y < chunkSize / 2 + chunk.y * chunkSize; y++) {
                 Vector3Int pos = new Vector3Int(x, y);
                 tileMap.SetTile(pos, null);
             }
